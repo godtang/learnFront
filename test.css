@@ -1,0 +1,24 @@
+#mytitle {
+    border: 3px dashed green;
+}
+
+.one {
+    font-size: 24px;
+    color: red;
+}
+
+.lv {
+    color: green;
+}
+
+.da {
+    font-size: 30px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+h1.one {
+    color: blue;
+}
