@@ -51,6 +51,37 @@
                 background-color: blue;
                 z-index: 3;
             }
+
+            .num {
+                position: absolute;
+                font-size: 24px;
+                font-weight: bold;
+                transform-origin: center center;
+            }
+
+            .num-12 {
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%) translateY(10px);
+            }
+
+            .num-3 {
+                top: 50%;
+                right: 0;
+                transform: translateX(-50%) translateX(10px);
+            }
+
+            .num-6 {
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            .num-9 {
+                top: 50%;
+                left: 0;
+                transform: translateX(-50%) translateY(10px);
+            }
         </style>
     </head>
 
@@ -59,6 +90,10 @@
             <div class="second-hand"></div>
             <div class="hour-hand"></div>
             <div class="minute-hand"></div>
+            <div class="num num-12">12</div>
+            <div class="num num-3">3</div>
+            <div class="num num-6">6</div>
+            <div class="num num-9">9</div>
         </div>
 
         <div class="clock">
