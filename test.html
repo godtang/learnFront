@@ -103,7 +103,7 @@
                 transform: translateX(50%) translateY(-10px);
             }
 
-            .long-scale {
+            /* .long-scale {
                 width: 4px;
                 height: 40px;
                 background-color: rgb(179, 52, 100);
@@ -119,7 +119,7 @@
 
                 margin-left: -2px;
                 transform-origin: bottom center;
-            }
+            } */
 
             .tick12 {
                 position: absolute;
@@ -134,16 +134,46 @@
                 transform: rotate(30deg);
             }
 
-            .parent {
+
+
+            .long-scale {
+                width: 8px;
+                height: 200px;
+                position: relative;
+                left: 50%;
+                transform-origin: bottom center;
+                background-color: transparent;
+            }
+
+            .long-scale::before {
+                content: "";
+                width: 8px;
+                height: 180px;
+                background-color: transparent;
+                position: absolute;
+                bottom: 0;
+            }
+
+            .long-scale::after {
+                content: "";
+                width: 8px;
+                height: 40px;
+                background-color: #000;
+                position: absolute;
+                top: 0;
+            }
+
+            .short-scale {
                 width: 4px;
                 height: 200px;
                 position: relative;
                 left: 50%;
                 transform-origin: bottom center;
-                transform: rotate(30deg);
+                background-color: transparent;
             }
 
-            .child1 {
+            .short-scale::before {
+                content: "";
                 width: 4px;
                 height: 180px;
                 background-color: transparent;
@@ -151,7 +181,8 @@
                 bottom: 0;
             }
 
-            .child2 {
+            .short-scale::after {
+                content: "";
                 width: 4px;
                 height: 20px;
                 background-color: #000;
@@ -165,9 +196,33 @@
         <div class="dial-plate">
             <!-- <div class="tick12 long-scale"></div>
             <div class="tick1 short-scale"> </div> -->
-            <div class="parent">
+            <!-- <div class="parent">
                 <div class="child1"></div>
                 <div class="child2"></div>
+            </div> -->
+            <div class="long-scale" style="transform: rotate(0deg);">
+            </div>
+            <div class="long-scale" style="transform: rotate(90deg);">
+            </div>
+            <div class="long-scale" style="transform: rotate(180deg);">
+            </div>
+            <div class="long-scale" style="transform: rotate(270deg);">
+            </div>
+            <div class="short-scale" style="transform: rotate(30deg);">
+            </div>
+            <div class="short-scale" style="transform: rotate(60deg);">
+            </div>
+            <div class="short-scale" style="transform: rotate(120deg);">
+            </div>
+            <div class="short-scale" style="transform: rotate(150deg);">
+            </div>
+            <div class="short-scale" style="transform: rotate(210deg);">
+            </div>
+            <div class="short-scale" style="transform: rotate(240deg);">
+            </div>
+            <div class="short-scale" style="transform: rotate(300deg);">
+            </div>
+            <div class="short-scale" style="transform: rotate(330deg);">
             </div>
         </div>
 
