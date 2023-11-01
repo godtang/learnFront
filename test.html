@@ -2,6 +2,32 @@
 <html>
 
     <head>
+        <script>
+            function rotateClockHands() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+
+                const hourHand = document.querySelector('.hour-hand');
+                const minuteHand = document.querySelector('.minute-hand');
+                const secondHand = document.querySelector('.second-hand');
+
+                const hourRotation = hours * 30 + minutes / 2;
+                const minuteRotation = minutes * 6 + seconds / 10;
+                const secondRotation = seconds * 6;
+
+                //console.log(`seconds=${seconds}, seconds degree=${secondRotation}, minutes=${minutes}, minutes degree=${minuteRotation}, hours=${hours}, hours degree=${hourRotation}, now="}`);
+
+                hourHand.style.transform = `rotate(${hourRotation}deg)`;
+                minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+                secondHand.style.transform = `rotate(${secondRotation}deg)`;
+
+                document.querySelector("body > div.dial-plate").style.visibility = "visible";
+            }
+
+            setInterval(rotateClockHands, 1000);
+        </script>
         <style>
             .clock {
                 width: 200px;
@@ -72,74 +98,16 @@
                 z-index: 3;
             }
 
-            .num {
-                position: absolute;
-                font-size: 24px;
-                font-weight: bold;
-                transform-origin: center center;
-            }
 
-            .num-12 {
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%) translateY(10px);
-            }
 
-            .num-3 {
-                top: 50%;
-                right: 0;
-                transform: translateX(-50%) translateY(-10px);
-            }
-
-            .num-6 {
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%) translateY(-10px);
-            }
-
-            .num-9 {
-                top: 50%;
-                left: 0;
-                transform: translateX(50%) translateY(-10px);
-            }
-
-            /* .long-scale {
-                width: 4px;
-                height: 40px;
-                background-color: rgb(179, 52, 100);
-                border: 2px solid black;
-                margin-left: -2px;
-            }
-
-            .short-scale {
-                width: 2px;
-                height: 200px;
-                background-color: rgb(212, 25, 97);
-                border: 2px solid black;
-
-                margin-left: -2px;
-                transform-origin: bottom center;
-            } */
-
-            .tick12 {
-                position: absolute;
-                left: 50%;
-                transform-origin: bottom center;
-            }
-
-            .tick1 {
-                position: absolute;
-                left: 50%;
-                transform-origin: bottom center;
-                transform: rotate(30deg);
-            }
 
 
 
             .long-scale {
                 width: 8px;
                 height: 200px;
-                position: relative;
+                position: absolute;
+                margin-left: -2px;
                 left: 50%;
                 transform-origin: bottom center;
                 background-color: transparent;
@@ -166,8 +134,9 @@
             .short-scale {
                 width: 4px;
                 height: 200px;
-                position: relative;
+                position: absolute;
                 left: 50%;
+                margin-left: -2px;
                 transform-origin: bottom center;
                 background-color: transparent;
             }
@@ -194,68 +163,26 @@
 
     <body>
         <div class="dial-plate">
-            <!-- <div class="tick12 long-scale"></div>
-            <div class="tick1 short-scale"> </div> -->
-            <!-- <div class="parent">
-                <div class="child1"></div>
-                <div class="child2"></div>
-            </div> -->
-            <div class="long-scale" style="transform: rotate(0deg);">
-            </div>
-            <div class="long-scale" style="transform: rotate(90deg);">
-            </div>
-            <div class="long-scale" style="transform: rotate(180deg);">
-            </div>
-            <div class="long-scale" style="transform: rotate(270deg);">
-            </div>
-            <div class="short-scale" style="transform: rotate(30deg);">
-            </div>
-            <div class="short-scale" style="transform: rotate(60deg);">
-            </div>
-            <div class="short-scale" style="transform: rotate(120deg);">
-            </div>
-            <div class="short-scale" style="transform: rotate(150deg);">
-            </div>
-            <div class="short-scale" style="transform: rotate(210deg);">
-            </div>
-            <div class="short-scale" style="transform: rotate(240deg);">
-            </div>
-            <div class="short-scale" style="transform: rotate(300deg);">
-            </div>
-            <div class="short-scale" style="transform: rotate(330deg);">
-            </div>
+            <div class="second-hand"></div>
+            <div class="hour-hand"></div>
+            <div class="minute-hand"></div>
+            <div id="central-point"></div>
+
+            <div class="long-scale" style="transform: rotate(0deg);"> </div>
+            <div class="short-scale" style="transform: rotate(30deg);"> </div>
+            <div class="short-scale" style="transform: rotate(60deg);"> </div>
+            <div class="long-scale" style="transform: rotate(90deg);"> </div>
+            <div class="short-scale" style="transform: rotate(120deg);"> </div>
+            <div class="short-scale" style="transform: rotate(150deg);"> </div>
+            <div class="long-scale" style="transform: rotate(180deg);"> </div>
+            <div class="short-scale" style="transform: rotate(210deg);"> </div>
+            <div class="short-scale" style="transform: rotate(240deg);"> </div>
+            <div class="long-scale" style="transform: rotate(270deg);"> </div>
+            <div class="short-scale" style="transform: rotate(300deg);"> </div>
+            <div class="short-scale" style="transform: rotate(330deg);"> </div>
         </div>
 
-        <!-- <div class="clock">
-            <div class="tick12 long-scale"></div>
-        </div> -->
 
-        <script>
-            function rotateClockHands() {
-                // const now = new Date();
-                // const hours = now.getHours();
-                // const minutes = now.getMinutes();
-                // const seconds = now.getSeconds();
-
-                // const hourHand = document.querySelector('.hour-hand');
-                // const minuteHand = document.querySelector('.minute-hand');
-                // const secondHand = document.querySelector('.second-hand');
-
-                // const hourRotation = hours * 30 + minutes / 2;
-                // const minuteRotation = minutes * 6 + seconds / 10;
-                // const secondRotation = seconds * 6;
-
-                // //console.log(`seconds=${seconds}, seconds degree=${secondRotation}, minutes=${minutes}, minutes degree=${minuteRotation}, hours=${hours}, hours degree=${hourRotation}, now="}`);
-
-                // hourHand.style.transform = `rotate(${hourRotation}deg)`;
-                // minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
-                // secondHand.style.transform = `rotate(${secondRotation}deg)`;
-
-                document.querySelector("body > div.dial-plate").style.visibility = "visible";
-            }
-
-            setInterval(rotateClockHands, 1000);
-        </script>
     </body>
 
 </html>
