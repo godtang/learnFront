@@ -3,6 +3,12 @@
 
     <head>
         <style>
+            .clock {
+                width: 200px;
+                height: 200px;
+                border: 2px solid #f00c0c;
+            }
+
             .dial-plate {
                 width: 400px;
                 height: 400px;
@@ -13,6 +19,20 @@
                 display: flex;
                 visibility: hidden;
             }
+
+            #central-point {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: #000;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 99;
+            }
+
+
 
             .hour-hand,
             .minute-hand,
@@ -68,7 +88,7 @@
             .num-3 {
                 top: 50%;
                 right: 0;
-                transform: translateX(-50%) translateX(10px);
+                transform: translateX(-50%) translateY(-10px);
             }
 
             .num-6 {
@@ -80,45 +100,101 @@
             .num-9 {
                 top: 50%;
                 left: 0;
-                transform: translateX(-50%) translateY(10px);
+                transform: translateX(50%) translateY(-10px);
+            }
+
+            .long-scale {
+                width: 4px;
+                height: 40px;
+                background-color: rgb(179, 52, 100);
+                border: 2px solid black;
+                margin-left: -2px;
+            }
+
+            .short-scale {
+                width: 2px;
+                height: 200px;
+                background-color: rgb(212, 25, 97);
+                border: 2px solid black;
+
+                margin-left: -2px;
+                transform-origin: bottom center;
+            }
+
+            .tick12 {
+                position: absolute;
+                left: 50%;
+                transform-origin: bottom center;
+            }
+
+            .tick1 {
+                position: absolute;
+                left: 50%;
+                transform-origin: bottom center;
+                transform: rotate(30deg);
+            }
+
+            .parent {
+                width: 4px;
+                height: 200px;
+                position: relative;
+                left: 50%;
+                transform-origin: bottom center;
+                transform: rotate(30deg);
+            }
+
+            .child1 {
+                width: 4px;
+                height: 180px;
+                background-color: transparent;
+                position: absolute;
+                bottom: 0;
+            }
+
+            .child2 {
+                width: 4px;
+                height: 20px;
+                background-color: #000;
+                position: absolute;
+                top: 0;
             }
         </style>
     </head>
 
     <body>
         <div class="dial-plate">
-            <div class="second-hand"></div>
-            <div class="hour-hand"></div>
-            <div class="minute-hand"></div>
-            <div class="num num-12">12</div>
-            <div class="num num-3">3</div>
-            <div class="num num-6">6</div>
-            <div class="num num-9">9</div>
+            <!-- <div class="tick12 long-scale"></div>
+            <div class="tick1 short-scale"> </div> -->
+            <div class="parent">
+                <div class="child1"></div>
+                <div class="child2"></div>
+            </div>
         </div>
 
-        <div class="clock">
-        </div>
+        <!-- <div class="clock">
+            <div class="tick12 long-scale"></div>
+        </div> -->
 
         <script>
             function rotateClockHands() {
-                const now = new Date();
-                const hours = now.getHours();
-                const minutes = now.getMinutes();
-                const seconds = now.getSeconds();
+                // const now = new Date();
+                // const hours = now.getHours();
+                // const minutes = now.getMinutes();
+                // const seconds = now.getSeconds();
 
-                const hourHand = document.querySelector('.hour-hand');
-                const minuteHand = document.querySelector('.minute-hand');
-                const secondHand = document.querySelector('.second-hand');
+                // const hourHand = document.querySelector('.hour-hand');
+                // const minuteHand = document.querySelector('.minute-hand');
+                // const secondHand = document.querySelector('.second-hand');
 
-                const hourRotation = hours * 30 + minutes / 2;
-                const minuteRotation = minutes * 6 + seconds / 10;
-                const secondRotation = seconds * 6;
+                // const hourRotation = hours * 30 + minutes / 2;
+                // const minuteRotation = minutes * 6 + seconds / 10;
+                // const secondRotation = seconds * 6;
 
-                //console.log(`seconds=${seconds}, seconds degree=${secondRotation}, minutes=${minutes}, minutes degree=${minuteRotation}, hours=${hours}, hours degree=${hourRotation}, now="}`);
+                // //console.log(`seconds=${seconds}, seconds degree=${secondRotation}, minutes=${minutes}, minutes degree=${minuteRotation}, hours=${hours}, hours degree=${hourRotation}, now="}`);
 
-                hourHand.style.transform = `rotate(${hourRotation}deg)`;
-                minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
-                secondHand.style.transform = `rotate(${secondRotation}deg)`;
+                // hourHand.style.transform = `rotate(${hourRotation}deg)`;
+                // minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+                // secondHand.style.transform = `rotate(${secondRotation}deg)`;
 
                 document.querySelector("body > div.dial-plate").style.visibility = "visible";
             }
