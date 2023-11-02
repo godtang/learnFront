@@ -194,3 +194,27 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.hw-scale-visible::before,
+.hw-scale-visible::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  /* 设置半圆的宽度 */
+  height: 8px;
+  /* 设置半圆的高度 */
+  background-color: #000;
+  /* 设置半圆的背景颜色，与矩形一致 */
+  border-radius: 50%;
+  /* 设置半圆的圆角半径，使其形成半圆形状 */
+}
+
+.hw-scale-visible::before {
+  top: -2px;
+  /* 将半圆定位到矩形的左边 */
+}
+
+.hw-scale-visible::after {
+  bottom: -2px;
+  /* 将半圆定位到矩形的右边 */
+}
