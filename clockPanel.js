@@ -20,5 +20,17 @@ function rotateClockHands() {
 
   document.querySelector("body > div.dial-plate").style.visibility = "visible";
 }
-
-setInterval(rotateClockHands, 1000);
+if (window.firstRun === undefined) {
+  // 第一次运行的逻辑
+  window.firstRun = true;
+  const clock = document.querySelector("body > div.hw-dial-plate");
+  const scale = document.querySelector(
+    "body > div.hw-dial-plate > div.hw-scale"
+  );
+  setInterval(rotateClockHands, 1000);
+  for (let i = 1; i <= 5; i++) {
+    var clonedElement = scale.cloneNode(true);
+    clonedElement.style.transform = `translateX(-50%) rotate(${i * 30}deg)`;
+    clock.appendChild(clonedElement);
+  }
+}
