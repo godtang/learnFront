@@ -159,6 +159,7 @@
   background-color: yellow;
   margin-bottom: -2px;
   left: 50%;
+  top: 5px;
   transform: translateX(-50%);
 }
 
