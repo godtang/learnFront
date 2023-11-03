@@ -8,9 +8,13 @@ function rotateClockHands() {
   const minuteHand = document.querySelector(".minute-hand");
   const secondHand = document.querySelector(".second-hand");
 
-  const hourRotation = hours * 30 + minutes / 2;
-  const minuteRotation = minutes * 6 + seconds / 10;
-  const secondRotation = seconds * 6;
+  var hourRotation = hours * 30 + minutes / 2;
+  var minuteRotation = minutes * 6 + seconds / 10;
+  var secondRotation = seconds * 6;
+
+  hourRotation = Math.floor(hourRotation);
+  minuteRotation = minuteRotation - (minuteRotation % 6);
+  secondRotation = secondRotation - (secondRotation % 6);
 
   //console.log(`seconds=${seconds}, seconds degree=${secondRotation}, minutes=${minutes}, minutes degree=${minuteRotation}, hours=${hours}, hours degree=${hourRotation}, now="}`);
 
