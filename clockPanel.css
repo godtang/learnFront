@@ -198,7 +198,7 @@
   border-radius: 4px;
 }
 
-.hw-minute {
+.hw-hand {
   position: absolute;
   width: 8px;
   height: 400px;
@@ -210,7 +210,7 @@
   z-index: 2;
 }
 
-.hw-minute-hand {
+.hw-hand-visible {
   position: absolute;
   width: 8px;
   height: 200px;
@@ -222,7 +222,7 @@
   border-top-right-radius: 4px;
 }
 
-.hw-minute-point {
+.hw-hand-point {
   position: absolute;
   width: 4px;
   height: 40px;
