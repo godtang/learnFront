@@ -17,6 +17,13 @@ function rotateClockHands() {
   hourHand.style.transform = `rotate(${hourRotation}deg)`;
   minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
   secondHand.style.transform = `rotate(${secondRotation}deg)`;
+
+  const hw_hourHand = document.querySelector("#hour-hand");
+  const hw_minuteHand = document.querySelector("#second-hand");
+  const hw_secondHand = document.querySelector(".hw-second");
+  hw_hourHand.style.transform = `translateX(-50%) rotate(${hourRotation}deg)`;
+  hw_minuteHand.style.transform = `translateX(-50%) rotate(${minuteRotation}deg)`;
+  hw_secondHand.style.transform = `translateX(-50%) rotate(${secondRotation}deg)`;
 }
 if (window.firstRun === undefined) {
   // 第一次运行的逻辑
