@@ -4,10 +4,6 @@ function rotateClockHands() {
   const minutes = now.getMinutes();
   const seconds = now.getSeconds();
 
-  const hourHand = document.querySelector(".hour-hand");
-  const minuteHand = document.querySelector(".minute-hand");
-  const secondHand = document.querySelector(".second-hand");
-
   var hourRotation = hours * 30 + minutes / 2;
   var minuteRotation = minutes * 6 + seconds / 10;
   var secondRotation = seconds * 6;
@@ -30,6 +26,9 @@ function rotateClockHands() {
   hw_secondHand.style.transform = `translateX(-50%) rotate(${secondRotation}deg)`;
 }
 if (window.firstRun === undefined) {
+  var hourHand = document.querySelector(".hour-hand");
+  var minuteHand = document.querySelector(".minute-hand");
+  var secondHand = document.querySelector(".second-hand");
   // 第一次运行的逻辑
   window.firstRun = true;
   const clock = document.querySelector("body > div.hw-dial-plate");
