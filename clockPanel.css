@@ -153,11 +153,11 @@
 
 .hw-second-circle {
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background-color: black;
-  border: 2px solid yellow;
+  border: 5px solid yellow;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
