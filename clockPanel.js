@@ -17,8 +17,6 @@ function rotateClockHands() {
   hourHand.style.transform = `rotate(${hourRotation}deg)`;
   minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
   secondHand.style.transform = `rotate(${secondRotation}deg)`;
-
-  document.querySelector("body > div.dial-plate").style.visibility = "visible";
 }
 if (window.firstRun === undefined) {
   // 第一次运行的逻辑
@@ -33,4 +31,6 @@ if (window.firstRun === undefined) {
     clonedElement.style.transform = `translateX(-50%) rotate(${i * 30}deg)`;
     clock.appendChild(clonedElement);
   }
+  rotateClockHands();
+  document.querySelector("body > div.dial-plate").style.visibility = "visible";
 }
